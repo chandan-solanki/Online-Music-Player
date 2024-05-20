@@ -5,6 +5,7 @@ import "./index.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Home from "./components/Home.jsx";
 import SearchContainer from "./components/SearchContainer.jsx";
+import PlayListContainer from "./components/PlayListContainer.jsx";
 
 const router = createBrowserRouter([
   {
@@ -21,7 +22,10 @@ const router = createBrowserRouter([
         path: "search",
         element: <SearchContainer />,
       },
-
+      {
+        path: "playlist",
+        element: <PlayListContainer />,
+      },
       ,
     ],
   },

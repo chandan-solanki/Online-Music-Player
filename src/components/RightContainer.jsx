@@ -23,9 +23,7 @@ export default function RightContainer() {
   return (
     <div
       onScroll={(e) => {
-        console.log(navRef.current);
-        navRef.current.classList.add("backdrop-blur");
-        navRef.current.style.backgroundColor = "rgba(20, 20, 20, 0.2)";
+        navRef.current.style.backgroundColor = "#212121";
       }}
       className="mr-3 h-dvh overflow-y-auto rounded-xl bg-primary"
     >

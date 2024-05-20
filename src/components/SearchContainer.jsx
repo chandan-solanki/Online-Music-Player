@@ -9,7 +9,6 @@ export default function SearchContainer() {
   return (
     <div className="mr-3 h-dvh overflow-y-auto rounded-xl bg-primary">
       <NavBar isSearchSection={true} setSearchInput={setSearchInput} />
-
       <SearchList searchInput={searchInput} setSearchInput={setSearchInput} />
     </div>
   );

@@ -6,6 +6,7 @@ export default {
       colors: {
         primary: "var(--background-base)",
         highlight: "var(--background-highlight)",
+        elevatedHighlight: "var(--background-elevated-highlight)",
       },
     },
   },
