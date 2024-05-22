@@ -1,8 +1,8 @@
-import Play from "../assets/play.svg";
-import Pause from "../assets/pause.svg";
-import LeftSong from "../assets/asset 131.svg";
-import RightSong from "../assets/asset 133.svg";
-import VolumeIcon from "../assets/asset 138.svg";
+import Play from "/public/assets/play.svg";
+import Pause from "/public/assets/pause.svg";
+import LeftSong from "/public/assets/asset 131.svg";
+import RightSong from "/public/assets/asset 133.svg";
+import VolumeIcon from "/public/assets/asset 138.svg";
 import { useAudioContext } from "../hooks/useAudioContext";
 import { useEffect, useRef, useState } from "react";
 
@@ -21,18 +21,39 @@ export default function MasterSong() {
   ] = useAudioContext();
 
   const durationRange = useRef(null);
+  const showCurrentSongTime = useRef(null);
+  // console.log(showCurrentSongTime);
 
-  console.log("master control render ");
+  // console.log("master control render ");
 
-  console.log("PLAY OR NOT : ", playOrNot);
-  console.log("CURRENT SONG ID : ", currentSongId);
-  console.log("MASTER SONG ID : ", masterSongId);
+  // console.log("PLAY OR NOT : ", playOrNot);
+  // console.log("CURRENT SONG ID : ", currentSongId);
+  // console.log("MASTER SONG ID : ", masterSongId);
 
   if (playOrNot === true) {
     if (currentSongId !== masterSongId) {
+      console.log(songData[masterSongId]);
       audio.src = songData[masterSongId].filePath;
     }
-    audio.play();
+
+    let playPromise = audio.play();
+
+    if (playPromise !== undefined) {
+      playPromise
+        .then((_) => {
+          // Automatic playback started!
+          // Show playing UI.
+          // We can now safely pause video...
+          // audio.play();
+          setCurrentSongId(masterSongId);
+        })
+        .catch((error) => {
+          // Auto-play was prevented
+          // Show paused UI.
+          // audio.pause();
+          console.log({ error });
+        });
+    }
   } else {
     audio.pause();
   }
@@ -46,6 +67,8 @@ export default function MasterSong() {
   function forwardSong() {
     console.log("forward");
     setPlayOrNot(true);
+    durationRange.current.style.background = `linear-gradient(to right, #1ed760 ${0}%, #4d4d4d ${0}%)`;
+    durationRange.current.value = 0;
 
     setMasterSongId((prv) => {
       if (prv === songData.length - 1) {
@@ -57,6 +80,8 @@ export default function MasterSong() {
 
   function backwardSong() {
     console.log("backward");
+    durationRange.current.style.background = `linear-gradient(to right, #1ed760 ${0}%, #4d4d4d ${0}%)`;
+    durationRange.current.value = 0;
 
     setMasterSongId((prv) => {
       if (prv === 0) return songData.length - 1;
@@ -70,8 +95,9 @@ export default function MasterSong() {
     setInterval(() => {
       const currentTime = audio.currentTime;
       const durationOfSong = audio.duration;
+      showCurrentSongTime.current.textContent = setTimeSong(currentTime);
       const per = Math.floor((currentTime / durationOfSong) * 100);
-      console.log("perchantage : ", per);
+      // console.log("perchantage : ", per);
       if (per === 100) {
         forwardSong();
       }
@@ -90,14 +116,33 @@ export default function MasterSong() {
     durationRange.current.style.background = `linear-gradient(to right, #1ed760 ${e.target.value}%, #4d4d4d ${e.target.value}%)`;
   }
 
+  function setTimeSong(duration) {
+    if (duration) {
+      let minutes = duration / 60;
+      let seconds = ((minutes.toFixed(2) % 1) * 60).toFixed(0);
+      let time = `${Math.floor(minutes)}:${formatNumber(seconds)} `;
+      // console.log({ time });
+      return time;
+    }
+    return "00:00";
+  }
+
+  function formatNumber(number) {
+    if (number < 10) return `0${number}`;
+    return `${number}`;
+  }
+
+  setTimeSong();
+
   return (
-    <div className="fixed bottom-0 left-0 z-10 flex h-[100px] w-full justify-between bg-black text-white">
+    <div className="fixed bottom-0 left-0 z-10 flex max-h-[72px] w-full justify-between bg-black text-white">
       {/* master cover and songName */}
       <div className="ml-4 flex w-[200px] items-center gap-4">
-        <div className="h-[80px] max-w-[80px] overflow-hidden p-1">
+        <div className="h-[60px] max-w-[60px] overflow-hidden p-1">
           <img
             className="w-full rounded-xl"
             src={songData[masterSongId].coverPath}
+            // src={CoverImg}
             alt="master-song-cover"
           />
         </div>
@@ -105,15 +150,15 @@ export default function MasterSong() {
       </div>
 
       {/* MASTER CONTROL FOR SONG */}
-      <div className="flex flex-col items-center justify-center gap-2">
+      <div className="flex py-4 flex-col items-center justify-center gap-1">
         <div className="flex gap-[1.5rem]">
           {/* BACKWARD SONG */}
           <img
             onClick={() => {
               backwardSong();
             }}
-            className="w-[20px] cursor-pointer invert-[55%] transition-all duration-200 hover:invert"
-            src={LeftSong}
+            className="w-[17px] cursor-pointer invert-[55%] transition-all duration-200 hover:invert"
+            src={`/assets/asset 131.svg`}
             alt="left-song-btn"
           />
 
@@ -124,11 +169,11 @@ export default function MasterSong() {
               if (firstPlay) setCurrentSongId(masterSongId);
               setFirstPlay(true);
             }}
-            className="rounded-full bg-white"
+            className="rounded-full bg-white transition-transform   hover:scale-105"
           >
             <img
-              className="w-[40px] cursor-pointer p-2"
-              src={playOrNot ? Pause : Play}
+              className="w-[30px] cursor-pointer p-2 "
+              src={playOrNot ? `/assets/pause.svg` : `/assets/play.svg`}
               alt="playOrPauseImg"
             />
           </div>
@@ -138,14 +183,18 @@ export default function MasterSong() {
             onClick={() => {
               forwardSong();
             }}
-            className="w-[20px] cursor-pointer invert-[55%] transition-all duration-200 hover:invert"
-            src={RightSong}
+            className="w-[17px] cursor-pointer invert-[55%] transition-all duration-200 hover:invert"
+            src={`/assets/asset 133.svg`}
             alt="right-song-btn"
           />
         </div>
 
         {/* SONG DURATION CONTROL */}
-        <div className="w-[400px]">
+        <div className="flex min-w-[500px] items-center justify-center gap-4">
+          <span ref={showCurrentSongTime} className="text-textSubdued text-sm">
+            {" "}
+            00:00
+          </span>
           <input
             ref={durationRange}
             onChange={setDurationOfSong}
@@ -158,12 +207,15 @@ export default function MasterSong() {
             id="songRange"
             defaultValue={0}
           />
+          <span className="text-textSubdued text-sm">
+            {setTimeSong(audio.duration)}
+          </span>
         </div>
       </div>
 
       {/* MASTER SONG VOLUME CONTROL */}
       <div className="mr-4 flex items-center justify-center gap-2">
-        <img className="w-[15px] invert" src={VolumeIcon} alt="" />
+        <img className="w-[15px] invert" src={`/assets/asset 138.svg`} alt="" />
         <input
           onChange={(e) => {
             console.log("volume :  ", e.target.value / 100);

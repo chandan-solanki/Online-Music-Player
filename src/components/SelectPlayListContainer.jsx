@@ -1,19 +1,18 @@
 import React, { useReducer, useRef, useState } from "react";
-import SearchImg from "../assets/search.svg";
-import CloseImg from "../assets/asset 144.svg";
+import SearchImg from "/public/assets/search.svg";
+import CloseImg from "/assets/asset 144.svg";
 import QueryResultList from "./QueryResultList";
-export default function SelectPlayListContainer() {
+export default function SelectPlayListContainer({setPlSongs}) {
   const [qry, setQry] = useState("");
   const searchQryRef = useRef(null);
 
-  console.log({ qry });
 
   const onChangeSearch = (e) => {
     setQry(e.target.value);
   };
 
   return (
-    <div className="mt-16 mb-20">
+    <div className="mb-20 mt-16">
       <div className="h-[2px] w-full bg-elevatedHighlight"></div>
       <div className="mt-10 flex max-w-fit flex-col items-start justify-center gap-4">
         <div className="w-full text-[1.5rem] font-semibold">
@@ -29,7 +28,7 @@ export default function SelectPlayListContainer() {
           <input
             ref={searchQryRef}
             onChange={onChangeSearch}
-            className="w-full rounded-md border-none bg-[#2c2c2c] px-10 py-3 text-[12px] tracking-wide   font-semibold text-[#ffffffb3] outline-none"
+            className="w-full rounded-md border-none bg-[#2c2c2c] px-10 py-3 text-[12px] font-semibold   tracking-wide text-[#ffffffb3] outline-none"
             type="text"
             placeholder="Search for songs "
             name="searchForPlaylist"
@@ -46,10 +45,9 @@ export default function SelectPlayListContainer() {
             <img className="w-full" src={CloseImg} alt="search-img" />
           </div>
         </div>
-
       </div>
 
-      <QueryResultList qry={qry}/>
+      <QueryResultList setPlSongs={setPlSongs} qry={qry} />
     </div>
   );
 }

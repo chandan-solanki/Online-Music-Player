@@ -3,13 +3,12 @@ import LeftContainer from "./components/LeftContainer";
 import { Outlet } from "react-router-dom";
 import MasterSong from "./components/MasterSong";
 import { AudioProvider } from "./contexts/AudioContext";
-import { useState } from "react";
 
 function App() {
   return (
-    <div className="main-app overflow-hidden">
-      <LeftContainer />
+    <div className="main-app overflow-hidden text-white">
       <AudioProvider>
+        <LeftContainer />
         <Outlet />
         <MasterSong />
       </AudioProvider>

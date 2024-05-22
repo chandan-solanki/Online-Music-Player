@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function QueryResultItem({ song }) {
+export default function QueryResultItem({ song, setPlSongs }) {
   const { id, songName, coverPath, filePath } = song;
 
   return (
@@ -13,7 +13,14 @@ export default function QueryResultItem({ song }) {
       </div>
 
       <div>
-        <button className="min-w-[90px] rounded-full border-2 border-[#727272] py-2 font-semibold outline-none hover:border-white">
+        <button
+          onClick={() => {
+            setPlSongs((prv) => {
+              return [{ id, songName, coverPath, filePath }, ...prv];
+            });
+          }}
+          className="min-w-[90px] rounded-full border-2 border-[#727272] py-2 font-semibold outline-none hover:border-white"
+        >
           Add
         </button>
       </div>

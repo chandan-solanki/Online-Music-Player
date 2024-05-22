@@ -19,14 +19,17 @@ const router = createBrowserRouter([
       },
 
       {
-        path: "search",
+        path: "/search",
         element: <SearchContainer />,
       },
       {
-        path: "playlist",
+        path: "/playlist",
         element: <PlayListContainer />,
       },
-      ,
+      {
+        path: "/playlist/:plid",
+        element: <PlayListContainer />,
+      },
     ],
   },
 ]);

@@ -2,7 +2,7 @@ import React from "react";
 import QueryResultItem from "./QueryResultItem";
 import { useAudioContext } from "../hooks/useAudioContext";
 
-export default function QueryResultList({ qry }) {
+export default function QueryResultList({ qry  ,setPlSongs}) {
   const [
     audio,
     setAuio,
@@ -25,7 +25,7 @@ export default function QueryResultList({ qry }) {
             return song.songName.toLowerCase().includes(qry.toLowerCase());
         })
         .map((song) => (
-          <QueryResultItem song={song} key={song.id} />
+          <QueryResultItem setPlSongs={setPlSongs} song={song} key={song.id} />
         ))}
     </div>
   );

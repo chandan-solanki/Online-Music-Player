@@ -1,6 +1,6 @@
 import React from "react";
-import ArrowLeft from "../assets/arrow-left.svg";
-import ArrowRight from "../assets/arrow-right.svg";
+// import ArrowLeft from "./assets/arrow-left.svg";
+// import ArrowRight from "./assets/arrow-right.svg";
 import SearchSongInput from "./SearchSongInput";
 export default function NavBar({ navRef , isSearchSection, setSearchInput }) {
   return (
@@ -10,12 +10,12 @@ export default function NavBar({ navRef , isSearchSection, setSearchInput }) {
       <div className="relative flex items-center justify-start">
         <div className="flex justify-between gap-2">
           <img
-            src={ArrowLeft}
+            src={`/assets/arrow-left.svg`}
             className="flex max-w-10 cursor-pointer items-center justify-center rounded-full  p-[7px] invert"
             alt="arrow-left"
           />
           <img
-            src={ArrowRight}
+            src={`/assets/arrow-right.svg`}
             className="flex max-w-10 cursor-pointer items-center justify-center rounded-full   p-[7px] invert"
             alt="arrow-right"
           />

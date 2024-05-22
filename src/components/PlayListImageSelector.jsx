@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import MusicIcon from "../assets/musicIcon.svg";
-import PenEdit from "../assets/penEdit.svg";
+import MusicIcon from "/assets/musicIcon.svg";
+import PenEdit from "/assets/penEdit.svg";
 
 export default function PlayListImageSelector() {
   const [mouseOver, setMouseOver] = useState(false);

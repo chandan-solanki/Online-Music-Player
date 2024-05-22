@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
-import PlayImg from "../assets/play.svg";
-import PauseImg from "../assets/pause.svg";
-import { songdata } from "../../songdata";
+// import PlayImg from "../assets/play.svg";
+// import PauseImg from "../assets/pause.svg";
 import { AudioContext } from "../contexts/AudioContext";
 
 export default function PlayOrPauseBtn({
@@ -31,7 +30,11 @@ export default function PlayOrPauseBtn({
       <div className="w-full">
         <img
           className="w-full "
-          src={masterSongId === songId && playOrNot ? PauseImg : PlayImg}
+          src={
+            masterSongId === songId && playOrNot
+              ? `/assets/pause.svg`
+              : `/assets/play.svg`
+          }
           alt="playorpause-img"
         />
       </div>

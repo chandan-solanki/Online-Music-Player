@@ -7,6 +7,7 @@ export default {
         primary: "var(--background-base)",
         highlight: "var(--background-highlight)",
         elevatedHighlight: "var(--background-elevated-highlight)",
+        textSubdued: "var(--text-subdued)",
       },
     },
   },
