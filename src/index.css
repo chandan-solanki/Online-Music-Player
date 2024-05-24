@@ -57,18 +57,69 @@ body::-webkit-scrollbar {
 #playListSelectImg {
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
+
 #showPlayListImg {
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
-.set-height{
-    max-height: calc(100vh - 91px);
+.set-height {
+    max-height: calc(100vh - 95px);
 }
 
-.set-container{
+.set-container {
     max-height: calc((100vh - 250px));
 }
 
+.active #showPlayListImg {
+    border: 1px solid white;
+}
+
+.shadow-base {
+    box-shadow: rgb(0, 0, 0) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+
+@media screen and (max-width : 700px) {
+    .main-app {
+        grid-template-columns: 1fr;
+    }
+
+    .left-container {
+        position: absolute;
+        max-width: 300px;
+        z-index: 1000;
+        gap: 0;
+        top: 0px;
+        min-height: 100vh;
+        border-radius: 0px;
+        background: var(--background-base);
+        /* border: 2px solid red; */
+        font-size: 14px;
+        /* border: 2px solid red; */
+    }
+
+    .fit-container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    .main-app{
+        margin: 0;
+    }
+}
+
+@media  screen and (max-width : 470px) {
+    .song-duration {
+        position: absolute;
+        bottom: 2px;
+        left: 0;
+        padding: 0px 8px;
+    }
+
+    .fit-container {
+        padding-left: .5rem;
+        padding-right: .5rem;
+    }
+}
 
 @layer base {
 

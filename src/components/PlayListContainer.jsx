@@ -1,10 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import NavBar from "./NavBar";
-
 import HeaderPlaylist from "./HeaderPlaylist";
 import SelectPlayListContainer from "./SelectPlayListContainer";
 import PlayListModal from "./PlayListModal";
-import { useLocalState } from "../hooks/useLocalState";
 import { useParams } from "react-router-dom";
 import { useAudioContext } from "../hooks/useAudioContext";
 import SelectedPlayListSongList from "./SelectedPlayListSongList";
@@ -30,10 +28,6 @@ export default function PlayListContainer() {
 
   // console.log("playListData"playListData)
 
-  console.log("playlist render......");
-
-  console.log({ editId });
-  console.log("editdata  ", editData);
 
   // console.log(plSongs);
   // if the url has plid
@@ -69,14 +63,14 @@ export default function PlayListContainer() {
     });
   }, [editId]);
 
-  console.log("plsong : ", plSongs);
+
 
   return (
     <div
       onScroll={(e) => {
         navRef.current.style.backgroundColor = "#212121";
       }}
-      className="mr-3 set-height h-dvh overflow-y-auto rounded-xl bg-primary text-white"
+      className="set-height max-[650px]:mx-0 mr-3 h-dvh overflow-y-auto rounded-xl bg-primary text-white"
     >
       <NavBar navRef={navRef} />
 
@@ -87,7 +81,9 @@ export default function PlayListContainer() {
           setOpenModal={setOpenModal}
         />
 
-        {plSongs.length > 0 && <SelectedPlayListSongList plSongs={plSongs} />}
+        {plSongs.length > 0 && (
+          <SelectedPlayListSongList setPlSongs={setPlSongs} plSongs={plSongs} />
+        )}
 
         <SelectPlayListContainer setPlSongs={setPlSongs} />
         {openModal && (

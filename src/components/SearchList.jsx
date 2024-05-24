@@ -17,9 +17,9 @@ export default function SearchList({ searchInput, setSearchInput }) {
   ] = useAudioContext();
 
   return (
-    <div className="fit-container mt-10 text-white">
+    <div className="fit-container mt-16 text-white">
       <span className="text-2xl font-semibold">Top Results</span>
-      <div className="grid grid-cols-4 gap-3 items-center justify-start py-4">
+      <div className="grid grid-cols-4 max-[845px]:grid-cols-3 max-[700px]:grid-cols-2 gap-3 items-center justify-start py-4">
         {songData
           .filter((song) => {
             if (searchInput !== "") {

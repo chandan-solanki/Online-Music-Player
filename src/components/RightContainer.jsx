@@ -23,7 +23,7 @@ export default function RightContainer() {
       onScroll={(e) => {
         navRef.current.style.backgroundColor = "#212121";
       }}
-      className="mr-3 set-height max-h-[calc(100%- 91px)] overflow-y-auto rounded-xl bg-primary"
+      className="mr-3 max-[700px]:mx-0 set-height h-dvh overflow-y-auto rounded-xl bg-primary"
     >
       <NavBar navRef={navRef} />
       <HeaderSongsList

@@ -29,8 +29,8 @@ export default function PlayListModal({
 
   return createPortal(
     <div className="absolute left-[50%] top-[50%] z-50 flex h-dvh w-dvw -translate-x-[50%] -translate-y-[50%] items-center  justify-center bg-[#000000b3] text-white">
-      <div className="flex h-fit min-w-[524px] flex-col gap-4 rounded-md bg-elevatedHighlight p-[24px] ">
-        <div className="flex items-center justify-between">
+      <div className="flex h-fit w-full max-w-[500px] flex-col gap-4 rounded-md bg-elevatedHighlight p-[24px] max-[700px]:max-w-[450px]  max-[470px]:max-w-[370px]">
+        <div className="flex items-center justify-between gap-3">
           <div className="text-[1.5rem] font-bold">Edit Details</div>
           <div
             onClick={() => setOpenModal(false)}
@@ -43,10 +43,9 @@ export default function PlayListModal({
             />
           </div>
         </div>
-
-        <div className="flex w-full justify-between">
+        <div className="flex w-full justify-between gap-5">
           <PlayListImageSelector />
-          <div className="relative flex min-w-[280px] flex-col items-start gap-4  text-[14px]  font-semibold ">
+          <div className="relative flex w-full flex-col items-start gap-4  text-[14px]  font-semibold ">
             <input
               onChange={onChange}
               className="relative w-full rounded-md border-[1px] border-[#3E3E3E] bg-[#3E3E3E]  p-[8px] outline-none focus:border-gray-400 "

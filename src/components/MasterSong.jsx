@@ -32,7 +32,6 @@ export default function MasterSong() {
 
   if (playOrNot === true) {
     if (currentSongId !== masterSongId) {
-      console.log(songData[masterSongId]);
       audio.src = songData[masterSongId].filePath;
     }
 
@@ -65,7 +64,6 @@ export default function MasterSong() {
   // console.log("current song duration  : ", audio.duration);
 
   function forwardSong() {
-    console.log("forward");
     setPlayOrNot(true);
     durationRange.current.style.background = `linear-gradient(to right, #1ed760 ${0}%, #4d4d4d ${0}%)`;
     durationRange.current.value = 0;
@@ -79,7 +77,6 @@ export default function MasterSong() {
   }
 
   function backwardSong() {
-    console.log("backward");
     durationRange.current.style.background = `linear-gradient(to right, #1ed760 ${0}%, #4d4d4d ${0}%)`;
     durationRange.current.value = 0;
 
@@ -112,7 +109,6 @@ export default function MasterSong() {
     //perchantage / 100 * duration
     const songTime = Math.floor((e.target.value / 100) * audio.duration);
     audio.currentTime = songTime;
-    console.log({ songTime });
     durationRange.current.style.background = `linear-gradient(to right, #1ed760 ${e.target.value}%, #4d4d4d ${e.target.value}%)`;
   }
 
@@ -121,7 +117,6 @@ export default function MasterSong() {
       let minutes = duration / 60;
       let seconds = ((minutes.toFixed(2) % 1) * 60).toFixed(0);
       let time = `${Math.floor(minutes)}:${formatNumber(seconds)} `;
-      // console.log({ time });
       return time;
     }
     return "00:00";
@@ -135,23 +130,25 @@ export default function MasterSong() {
   setTimeSong();
 
   return (
-    <div className="fixed bottom-0 left-0 z-10 flex max-h-[72px] w-full justify-between bg-black text-white">
+    <div className="fixed bottom-0 left-0 z-10 flex max-h-[72px] w-full justify-between gap-2 bg-black text-white max-[470px]:min-h-[90px] max-[470px]:items-start">
       {/* master cover and songName */}
-      <div className="ml-4 flex w-[200px] items-center gap-4">
+      <div className="ml-4 flex w-full max-w-[200px] items-center gap-4 max-[470px]:m-0">
         <div className="h-[60px] max-w-[60px] overflow-hidden p-1">
           <img
-            className="w-full rounded-xl"
+            className="w-full rounded-xl max-[700px]:rounded-md"
             src={songData[masterSongId].coverPath}
             // src={CoverImg}
             alt="master-song-cover"
           />
         </div>
-        <span className="font-bold">{songData[masterSongId].songName}</span>
+        <span className="font-bold max-[470px]:text-[12px]">
+          {songData[masterSongId].songName}
+        </span>
       </div>
 
       {/* MASTER CONTROL FOR SONG */}
-      <div className="flex py-4 flex-col items-center justify-center gap-1">
-        <div className="flex gap-[1.5rem]">
+      <div className="flex min-w-[500px]  flex-col items-center justify-center gap-1 py-4 max-[845px]:min-w-[300px] max-[650px]:min-w-[200px] max-[650px]:max-w-[250px] max-[375px]:min-w-[150px]">
+        <div className="flex w-full justify-center gap-[1.5rem]">
           {/* BACKWARD SONG */}
           <img
             onClick={() => {
@@ -171,11 +168,13 @@ export default function MasterSong() {
             }}
             className="rounded-full bg-white transition-transform   hover:scale-105"
           >
-            <img
-              className="w-[30px] cursor-pointer p-2 "
-              src={playOrNot ? `/assets/pause.svg` : `/assets/play.svg`}
-              alt="playOrPauseImg"
-            />
+            <div className="max-w-[30px] cursor-pointer p-2">
+              <img
+                className="w-full"
+                src={playOrNot ? `/assets/pause.svg` : `/assets/play.svg`}
+                alt="playOrPauseImg"
+              />
+            </div>
           </div>
 
           {/* FORWARD SONG */}
@@ -190,15 +189,15 @@ export default function MasterSong() {
         </div>
 
         {/* SONG DURATION CONTROL */}
-        <div className="flex min-w-[500px] items-center justify-center gap-4">
-          <span ref={showCurrentSongTime} className="text-textSubdued text-sm">
+        <div className="song-duration flex  w-[100%] items-center justify-center gap-4">
+          <span ref={showCurrentSongTime} className="text-sm text-textSubdued">
             {" "}
             00:00
           </span>
           <input
             ref={durationRange}
             onChange={setDurationOfSong}
-            className="w-full"
+            className="w-[100%]"
             type="range"
             min="0"
             max="100"
@@ -207,22 +206,25 @@ export default function MasterSong() {
             id="songRange"
             defaultValue={0}
           />
-          <span className="text-textSubdued text-sm">
+          <span className="text-sm text-textSubdued">
             {setTimeSong(audio.duration)}
           </span>
         </div>
       </div>
 
       {/* MASTER SONG VOLUME CONTROL */}
-      <div className="mr-4 flex items-center justify-center gap-2">
-        <img className="w-[15px] invert" src={`/assets/asset 138.svg`} alt="" />
+      <div className="mr-4 flex items-center justify-center gap-2 max-[650px]:max-w-[50px] max-[470px]:hidden">
+        <img
+          className="max-w-[15px] invert"
+          src={`/assets/asset 138.svg`}
+          alt=""
+        />
         <input
           onChange={(e) => {
-            console.log("volume :  ", e.target.value / 100);
             audio.volume = e.target.value / 100;
             e.target.style.background = `linear-gradient(to right, #1ed760 ${e.target.value}%, #4d4d4d ${e.target.value}%)`;
           }}
-          className="w-[80px]"
+          className="max-w-[80px]"
           type="range"
           min="0"
           max="100"

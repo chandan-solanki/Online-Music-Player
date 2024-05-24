@@ -15,8 +15,8 @@ export default function PlayOrPauseBtn({
 
   return (
     <button
+      // style={{ width: size, height: size }}
       onClick={(e) => {
-        console.log({ songId });
         if (playOrNot && masterSongId === songId) {
           setPlayOrNot(false);
           setCurrentSongId(parseInt(songId));
@@ -25,7 +25,8 @@ export default function PlayOrPauseBtn({
           setPlayOrNot(true);
         }
       }}
-      className={`mr-2 h-[40px] w-[40px] rounded-full bg-[#1ed760] p-2 shadow-lg shadow-gray-900 max-[1000px]:h-[30px] max-[1000px]:w-[30px]`}
+      className={`mr-2 h-[35px] w-[35px] rounded-full bg-[#1ed760] p-2 shadow-lg shadow-gray-900 max-[1000px]:h-[30px] max-[1000px]:w-[30px] max-[470px]:max-w-[25px] max-[470px]:max-h-[25px]`}
+      // className={`mr-2 h-[35px] w-[35px] rounded-full bg-[#1ed760] p-2 shadow-lg shadow-gray-900 max-[1000px]:h-[30px] max-[1000px]:w-[30px]`}
     >
       <div className="w-full">
         <img

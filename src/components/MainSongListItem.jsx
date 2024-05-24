@@ -16,12 +16,12 @@ export default function MainSongListItem({
     <div
       onMouseOver={() => setMouseOver(true)}
       onMouseLeave={() => setMouseOver(false)}
-      className="transition-color flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg pt-3.5  duration-150 hover:bg-highlight"
+      className="transition-color flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg p-3    duration-150 hover:bg-highlight"
     >
-      <div className="relative flex w-full max-w-[180px] flex-col items-start justify-start  text-white">
+      <div className="relative flex w-full max-w-[180px] flex-col items-start justify-start text-white  max-[845px]:max-w-[200px]">
         <div className="w-full max-w-full overflow-hidden rounded-lg">
           <img
-            className="h-full w-full"
+            className=" w-full"
             src={`${coverPath}`}
             alt="main-song-img"
           />
@@ -38,7 +38,7 @@ export default function MainSongListItem({
             masterSongId={masterSongId}
             setMasterSongId={setMasterSongId}
             songId={songId}
-            size={"20"}
+            size={"50px"}
           />
         </div>
       </div>

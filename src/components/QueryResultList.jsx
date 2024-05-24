@@ -17,7 +17,7 @@ export default function QueryResultList({ qry  ,setPlSongs}) {
   ] = useAudioContext();
 
   return (
-    <div className="pb-24 mt-10 flex h-auto w-full flex-col items-start justify-center gap-2">
+    <div className="pb-24  mt-10 flex h-auto w-full flex-col items-start justify-center gap-2">
       {/* QUERY RESULT ITEMS */}
       {songData
         .filter((song) => {

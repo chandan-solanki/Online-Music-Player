@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import { songdata } from "../../songdata";
+import { songdata } from "../songdata";
 import { useLocalState } from "../hooks/useLocalState";
 import { useParams } from "react-router-dom";
 
@@ -16,7 +16,7 @@ export const AudioProvider = ({ children }) => {
   const [playListData, setPlayListData] = useLocalState("playListData", []);
   const [editData, SetEditData] = useState(null);
   const [editId, setEditId] = useState("");
-
+  const [navBarOpen, setNavBarOpen] = useState(false);
 
   return (
     <AudioContext.Provider
@@ -36,7 +36,9 @@ export const AudioProvider = ({ children }) => {
         editData,
         SetEditData,
         editId,
-        setEditId
+        setEditId,
+        navBarOpen,
+        setNavBarOpen
       ]}
     >
       {children}

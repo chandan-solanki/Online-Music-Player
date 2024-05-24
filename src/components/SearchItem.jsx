@@ -16,14 +16,14 @@ export default function ({
         setMouseOver(true);
       }}
       onMouseLeave={() => setMouseOver(false)}
-      className="relative flex max-w-[190px]  flex-col items-start rounded-lg bg-highlight p-3"
+      className="relative flex flex-col w-fit items-start rounded-lg bg-highlight p-3"
     >
-      <div className="max-w-full overflow-hidden rounded-lg">
+      <div className="max-w-[150px]  overflow-hidden rounded-lg">
         <img className="w-full" src={coverPath} alt="search-song-img" />
       </div>
-      <span className=" pt-2 font-semibold">{songName}</span>
+      <span className="max-[700px]:text-[12px] pt-2 font-semibold">{songName}</span>
       <div
-        className={`absolute bottom-0 right-1 opacity-0 transition-all duration-200 ${mouseOver ? "overActive" : ""}`}
+        className={`absolute bottom-0 right-6  opacity-0 transition-all duration-200 ${mouseOver ? "overActive" : ""}`}
       >
         <PlayOrPauseBtn
           playOrNot={playOrNot}

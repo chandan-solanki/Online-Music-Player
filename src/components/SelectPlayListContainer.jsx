@@ -12,10 +12,10 @@ export default function SelectPlayListContainer({setPlSongs}) {
   };
 
   return (
-    <div className="mb-20 mt-16">
+    <div className="mb-20 mt-10">
       <div className="h-[2px] w-full bg-elevatedHighlight"></div>
       <div className="mt-10 flex max-w-fit flex-col items-start justify-center gap-4">
-        <div className="w-full text-[1.5rem] font-semibold">
+        <div className="w-full max-[470px]:text-center text-[1.5rem] font-semibold">
           Let's find something for your playlist
         </div>
 
