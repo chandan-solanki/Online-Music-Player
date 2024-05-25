@@ -37,7 +37,7 @@ export default function LeftContainer({}) {
   return (
     <div
       ref={leftContainerRef}
-      className={` ${navBarOpen ? "left-0" : "left-[-90%]"} left-container set-height ml-1 flex min-w-[350px] flex-col justify-start gap-3 overflow-hidden rounded-xl text-white transition-all duration-300  max-[1200px]:min-w-[250px]  max-[1000px]:min-w-[245px] max-[845px]:min-w-[220px] max-[700px]:m-0`}
+      className={` ${navBarOpen ? "left-0" : "left-[-90%]"} left-container set-height ml-1 flex min-w-[350px] flex-col justify-start gap-3 overflow-hidden rounded-xl text-white transition-all duration-300  max-[1200px]:min-w-[250px]  max-[1000px]:min-w-[245px] max-[845px]:min-w-[240px] max-[700px]:m-0`}
     >
       {/* FOR NAVIGATION  */}
       <div className="relative flex min-h-[150px] flex-col items-start justify-center gap-4 rounded-xl bg-primary pl-5 max-[700px]:rounded-none ">

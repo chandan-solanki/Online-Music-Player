@@ -6,7 +6,7 @@ import { AudioProvider } from "./contexts/AudioContext";
 
 function App() {
   return (
-    <div className="main-app overflow-hidden text-white">
+    <div className="main-app overflow-hidden select-none text-white">
       <AudioProvider>
         <LeftContainer />
         <Outlet />

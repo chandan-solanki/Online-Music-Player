@@ -95,25 +95,17 @@ export const songdata = [
     coverPath: "/assets/unstoppable.jpg",
     filePath: "/songs/15.mp3",
   },
+  {
+    id: 16,
+    songName: "Kaun Hain Voh",
+    coverPath: "/assets/kaun hai vo.jfif",
+    filePath: "/songs/16.mp3",
+  },
+  {
+    id: 17,
+    songName: "Netflix Shape Of You",
+    coverPath: "/assets/indianshapofyou.jfif",
+    filePath: "/songs/17.m4a",
+  },
 ];
 
-// export default bgColors = [
-//   { color: "linear-gradient(rgb(19, 80, 133), rgb(22 92 146 / 44%))" },
-//   { color: "linear-gradient(rgb(116 110 96), rgb(82 82 82 / 60%))" },
-//   {
-//     color: "linear-gradient(rgb(230 219 170 / 80%), rgba(173, 117, 95, 0.48))",
-//   },
-//   { color: "linear-gradient(rgb(126 94 65), rgb(36 5 1 / 21%))" },
-//   { color: "linear-gradient(#2196f3ad, rgb(32 38 176 / 41%))" },
-//   { color: "linear-gradient(#b819d3d4, rgb(73 32 176 / 13%))" },
-//   { color: "linear-gradient(rgb(53 63 54), rgb(77 90 73 / 94%))" },
-//   { color: "linear-gradient(rgb(199 42 43), rgb(244 67 54 / 21%))" },
-//   { color: "linear-gradient(rgb(238 134 30 / 87%), rgb(227 216 83 / 49%))" },
-//   { color: "linear-gradient(rgb(229 45 31 / 86%), rgba(226, 173, 173, 0.18))" },
-//   { color: "linear-gradient(rgb(255 175 169 / 90%), rgb(226 173 173 / 18%))" },
-//   { color: "linear-gradient(#2196f3b8, rgb(103 58 183 / 40%))" },
-//   { color: "linear-gradient(rgb(220 199 117 / 70%), rgb(101 95 68))" },
-//   { color: "linear-gradient(#d0d0d0de, #9e9e9e57)" },
-//   { color: "linear-gradient(rgb(32 75 84 / 80%), rgb(63 136 122 / 87%))" },
-//   { color: "linear-gradient(rgb(214 187 142 / 82%), rgb(214 187 142 / 41%))" },
-// ];

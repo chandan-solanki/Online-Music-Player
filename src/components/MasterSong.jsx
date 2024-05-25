@@ -5,6 +5,8 @@ import RightSong from "/public/assets/asset 133.svg";
 import VolumeIcon from "/public/assets/asset 138.svg";
 import { useAudioContext } from "../hooks/useAudioContext";
 import { useEffect, useRef, useState } from "react";
+// import { songBgColors } from "../songBgColors";
+import { songBgColors } from "../songBgColors";
 
 export default function MasterSong() {
   const [
@@ -57,12 +59,6 @@ export default function MasterSong() {
     audio.pause();
   }
 
-  // console.log(durationRange.current);
-  // console.log("master song control : ", masterSongId);
-  // console.log("current song currentTime  : ", audio.currentTime);
-
-  // console.log("current song duration  : ", audio.duration);
-
   function forwardSong() {
     setPlayOrNot(true);
     durationRange.current.style.background = `linear-gradient(to right, #1ed760 ${0}%, #4d4d4d ${0}%)`;
@@ -77,6 +73,7 @@ export default function MasterSong() {
   }
 
   function backwardSong() {
+    setPlayOrNot(true);
     durationRange.current.style.background = `linear-gradient(to right, #1ed760 ${0}%, #4d4d4d ${0}%)`;
     durationRange.current.value = 0;
 
@@ -130,7 +127,12 @@ export default function MasterSong() {
   setTimeSong();
 
   return (
-    <div className="fixed bottom-0 left-0 z-10 flex max-h-[72px] w-full justify-between gap-2 bg-black text-white max-[470px]:min-h-[90px] max-[470px]:items-start">
+    <div
+      style={{
+        background: `${window.innerWidth < 845 ? songBgColors[masterSongId].color : ""}`,
+      }}
+      className="fixed bottom-0 left-0 z-10 flex max-h-[72px] w-full justify-between gap-2 bg-black text-white transition-all duration-1000 max-[470px]:min-h-[90px] max-[470px]:items-start"
+    >
       {/* master cover and songName */}
       <div className="ml-4 flex w-full max-w-[200px] items-center gap-4 max-[470px]:m-0">
         <div className="h-[60px] max-w-[60px] overflow-hidden p-1">

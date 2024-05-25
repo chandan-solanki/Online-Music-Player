@@ -6,11 +6,11 @@ export default function MainSongList({
   setPlayOrNot,
   masterSongId,
   setMasterSongId,
-  playOrNot 
+  playOrNot,
 }) {
 
   return (
-    <div className="fit-container max-[650px]:pb-[3rem] grid w-full grid-cols-5 gap-3 pt-10 max-[1300px]:grid-cols-4 max-[1000px]:grid-cols-3 max-[845px]:grid-cols-2">
+    <div className="fit-container grid w-full grid-cols-5 gap-3 pt-10 max-[1300px]:grid-cols-4 max-[1000px]:grid-cols-3 max-[845px]:grid-cols-2 max-[650px]:pb-[3rem]">
       {songData.map((song) => {
         return (
           <MainSongListItem
@@ -19,7 +19,7 @@ export default function MainSongList({
             key={song.id}
             masterSongId={masterSongId}
             songId={song.id}
-            playOrNot ={playOrNot}
+            playOrNot={playOrNot}
             songName={song.songName}
             coverPath={song.coverPath}
           />
