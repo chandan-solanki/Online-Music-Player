@@ -1,6 +1,4 @@
 import React, { useContext } from "react";
-// import PlayImg from "../assets/play.svg";
-// import PauseImg from "../assets/pause.svg";
 import { AudioContext } from "../contexts/AudioContext";
 
 export default function PlayOrPauseBtn({
@@ -11,11 +9,13 @@ export default function PlayOrPauseBtn({
   setPlayOrNot,
   playOrNot,
 }) {
+
   const { 3: setCurrentSongId } = useContext(AudioContext);
+
 
   return (
     <button
-      // style={{ width: size, height: size }}
+      // style={{}}
       onClick={(e) => {
         if (playOrNot && masterSongId === songId) {
           setPlayOrNot(false);
@@ -25,8 +25,7 @@ export default function PlayOrPauseBtn({
           setPlayOrNot(true);
         }
       }}
-      className={`mr-2 h-[35px] w-[35px] rounded-full bg-[#1ed760] p-2 shadow-lg shadow-gray-900 max-[1000px]:h-[30px] max-[1000px]:w-[30px] max-[470px]:max-w-[25px] max-[470px]:max-h-[25px]`}
-      // className={`mr-2 h-[35px] w-[35px] rounded-full bg-[#1ed760] p-2 shadow-lg shadow-gray-900 max-[1000px]:h-[30px] max-[1000px]:w-[30px]`}
+      className={`mr-2 h-[35px] w-[35px] rounded-full bg-[#1ed760] p-2 shadow-lg shadow-gray-900 max-[1000px]:h-[30px] max-[1000px]:w-[30px] max-[470px]:max-h-[25px] max-[470px]:max-w-[25px]`}
     >
       <div className="w-full">
         <img

@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import NavBar from "./NavBar";
 import HeaderSongsList from "./HeaderSongsList";
 import MainSongList from "./MainSongList";
@@ -18,12 +18,20 @@ export default function RightContainer() {
     setSongData,
   ] = useAudioContext();
   const navRef = useRef(null);
+
+  const handleScroll = (e) => {
+
+    navRef.current.classList.toggle(
+      "bgchange",
+      e.target.scrollTop > 100,
+    );
+
+  };
+
   return (
     <div
-      onScroll={(e) => {
-        navRef.current.style.backgroundColor = "#212121";
-      }}
-      className="mr-3 max-[700px]:mx-0 set-height h-dvh overflow-y-auto rounded-xl bg-primary"
+      onScroll={handleScroll}
+      className="set-height mr-3 h-dvh overflow-y-auto rounded-xl bg-primary max-[700px]:mx-0"
     >
       <NavBar navRef={navRef} />
       <HeaderSongsList

@@ -28,7 +28,6 @@ export default function PlayListContainer() {
 
   // console.log("playListData"playListData)
 
-
   // console.log(plSongs);
   // if the url has plid
 
@@ -63,14 +62,19 @@ export default function PlayListContainer() {
     });
   }, [editId]);
 
+  const handleScroll = (e) => {
+    navRef.current.classList.toggle(
+      "bgchange",
+      e.currentTarget.scrollTop > 100,
+    );
 
+
+  };
 
   return (
     <div
-      onScroll={(e) => {
-        navRef.current.style.backgroundColor = "#212121";
-      }}
-      className="set-height max-[650px]:mx-0 mr-3 h-dvh overflow-y-auto rounded-xl bg-primary text-white"
+      onScroll={handleScroll}
+      className="set-height mr-3 h-dvh overflow-y-auto rounded-xl bg-primary text-white max-[650px]:mx-0"
     >
       <NavBar navRef={navRef} />
 

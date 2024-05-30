@@ -129,7 +129,7 @@ export default function MasterSong() {
   return (
     <div
       style={{
-        background: `${window.innerWidth < 845 ? songBgColors[masterSongId].color : ""}`,
+        background: `${songBgColors[masterSongId].color}`,
       }}
       className="fixed bottom-0 left-0 z-10 flex max-h-[72px] w-full justify-between gap-2 bg-black text-white transition-all duration-1000 max-[470px]:min-h-[90px] max-[470px]:items-start"
     >
