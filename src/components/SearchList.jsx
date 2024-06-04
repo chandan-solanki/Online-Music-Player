@@ -25,7 +25,7 @@ export default function SearchList({ searchInput, setSearchInput }) {
             if (searchInput !== "") {
               return song.songName
                 .toLowerCase()
-                .includes(searchInput.toLowerCase());
+                .includes(searchInput.trim().toLowerCase());
             }
           })
           .map((song) => {

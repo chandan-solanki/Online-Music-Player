@@ -22,7 +22,7 @@ export default function QueryResultList({ qry  ,setPlSongs}) {
       {songData
         .filter((song) => {
           if (qry !== "")
-            return song.songName.toLowerCase().includes(qry.toLowerCase());
+            return song.songName.toLowerCase().includes(qry.trim().toLowerCase());
         })
         .map((song) => (
           <QueryResultItem setPlSongs={setPlSongs} song={song} key={song.id} />
